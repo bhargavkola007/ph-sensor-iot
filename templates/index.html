@@ -1,57 +1,141 @@
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
+  <meta charset="utf-8">
 
-<style>
+  <title>Smart Agro Live Monitoring System</title>
 
-body{
-background:#111;
-color:white;
-font-family:Arial;
-text-align:center;
-}
+  <meta name="description"
+    content="IoT based monitoring system for water quality and soil conditions including pH, turbidity and soil moisture sensors.">
 
-table{
-margin:auto;
-border-collapse:collapse;
-width:70%;
-}
+  <meta name="keywords"
+    content="Water Monitoring, Soil Monitoring, pH Sensor, Turbidity Sensor, Soil Moisture Sensor, IoT Monitoring">
 
-th,td{
-padding:12px;
-border:1px solid white;
-}
+  <meta name="robots" content="index, follow">
 
-th{
-background:#00aaff;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</style>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<h1>Smart Agro Live Monitoring</h1>
+  <!-- HEADER -->
 
-<table>
+  <header>
 
-<tr>
-<th>Time</th>
-<th>Moisture (%)</th>
-<th>pH Value</th>
-</tr>
+    <img src="cutm logo.png" class="logo" alt="CUTM Logo">
 
-{% for d in data %}
+    <div class="titles">
+      <h1>Centurion University Of Technology and Management</h1>
+      <h2>SMART AGRO LIVE MONITORING SYSTEM</h2>
+    </div>
 
-<tr>
-<td>{{d.time}}</td>
-<td>{{d.moisture}}</td>
-<td>{{d.ph}}</td>
-</tr>
+  </header>
 
-{% endfor %}
 
-</table>
+
+  <!-- MAIN DASHBOARD -->
+
+  <main class="container">
+
+
+    <!-- CONTROLS -->
+
+    <section class="controls">
+
+      <div class="left-controls">
+        <label>Show
+          <select id="pageSize">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+          entries
+        </label>
+      </div>
+
+      <div class="right-controls">
+
+        <input type="text" id="searchBox" placeholder="Search data...">
+
+        <button id="viewDataBtn">Controls</button>
+
+        <button id="exportBtn">Export Data</button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- DATA TABLE -->
+
+    <div class="table-wrapper">
+
+      <table id="dataTable">
+
+        <thead>
+
+          <tr>
+            <th>#</th>
+            <th>pH Level</th>
+            <th>Turbidity (NTU)</th>
+            <th>Soil Moisture (%)</th>
+            <th>Time</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <!-- Sensor data will load here dynamically -->
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+
+    <!-- PAGINATION -->
+
+    <div class="pagination">
+
+      <button id="prevBtn">⟨ Prev</button>
+
+      <span id="pageInfo">Page 1</span>
+
+      <button id="nextBtn">Next ⟩</button>
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 Smart Agro Live Monitoring | IoT Sensor Dashboard</p>
+
+  </footer>
+
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
 
 </body>
+
 </html>
